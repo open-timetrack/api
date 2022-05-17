@@ -39,10 +39,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
-      - uses: actions/checkout@v3
-        name: checkout tag
-        with:
-          ref: 'HEAD^'
+      - name: checkout tag
+        run: git checkout HEAD^
 
       - name: Update CHANGELOG
         id: changelog
