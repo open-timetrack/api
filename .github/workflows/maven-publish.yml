@@ -46,17 +46,12 @@ jobs:
         id: taginfo
         run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
 
-      - name: debug
-        run: echo "$TEST_TAG"
-        env:
-          TEST_TAG: ${{ github.taginfo.outputs.tag }}
-
       - name: Update CHANGELOG
         id: changelog
         uses: Requarks/changelog-action@v1
         with:
           token: ${{ github.token }}
-          tag: ${{ github.taginfo.outputs.tag }}
+          tag: ${{ steps.taginfo.outputs.tag }}
           writeToFile: false
 
       - name: Create Release
@@ -64,6 +59,6 @@ jobs:
         with:
           allowUpdates: true
           draft: false
-          name: ${{ github.taginfo.outputs.tag }}
+          name: ${{ steps.taginfo.outputs.tag }}
           body: ${{ steps.changelog.outputs.changes }}
           token: ${{ github.token }}
