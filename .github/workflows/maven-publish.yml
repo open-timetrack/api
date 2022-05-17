@@ -42,7 +42,8 @@ jobs:
       - name: checkout tag
         run: git checkout HEAD^
 
-      - name: taginfo
+      - name: get tagname
+        id: taginfo
         run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
 
       - name: Update CHANGELOG
