@@ -47,7 +47,7 @@ jobs:
         run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
 
       - name: debug
-        run: echo "$env.TEST_TAG"
+        run: echo "$TEST_TAG"
         env:
           TEST_TAG: ${{ github.taginfo.outputs.tag }}
 
