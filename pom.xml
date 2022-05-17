@@ -12,7 +12,7 @@
     </properties>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@github.com:open-timetrack/api.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/open-timetrack/api.git</developerConnection>
     </scm>
 
     <distributionManagement>
