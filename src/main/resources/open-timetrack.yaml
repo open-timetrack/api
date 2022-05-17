@@ -1,0 +1,96 @@
+openapi: 3.0.3
+info:
+  title: openTimeTrack
+  description: "OpenApi definition of the interfaces implemented by the open-timetrack Backend"
+  version: ${project.version}
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /TimeTrack:
+    get:
+      tags:
+        - TimeTrack
+      summary: Get all available timeTracks
+      operationId: getAllTimeTracks
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TimeTrack'
+    post:
+      tags:
+        - TimeTrack
+      summary: adds a new TimeTrack
+      operationId: addNewTimeTrack
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeTrack'
+      responses:
+        204:
+          description: successful operation
+        415:
+          description: Unsupported Media Type
+  /TimeTrack/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - TimeTrack
+      summary: gets a specific TimeTrack
+      operationId: getTimeTrack
+      responses:
+        200:
+          description: successful got one TimeTrack
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeTrack'
+    put:
+      tags:
+        - TimeTracks
+      summary: updates a TimeTrack
+      operationId: updateTimeTrack
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeTrack'
+          application/x-yaml:
+            schema:
+              $ref: '#/components/schemas/TimeTrack'
+      responses:
+        200:
+          description: successful operation
+components:
+  schemas:
+    TimeTrack:
+      type: object
+      required:
+        - start
+        - task
+      properties:
+        id:
+          type: string
+        start:
+          type: string
+          format: date-time
+          description: dateTime when the tasks starts. needs to be converted to the right timeZone of the user
+        end:
+          type: string
+          format: date-time
+          description: dateTime when the tasks ends. needs to be converted to the right timeZone of the user
+        task:
+          type: string
+        note:
+          type: string
+
