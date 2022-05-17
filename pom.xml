@@ -9,12 +9,14 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <basepackage>open.timetrack.api</basepackage>
+        <basepackage.classespath>open/timetrack/api</basepackage.classespath>
     </properties>
 
     <scm>
         <developerConnection>scm:git:https://github.com/open-timetrack/api.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <distributionManagement>
         <repository>
@@ -243,7 +245,7 @@
                                 </goals>
                                 <configuration>
                                     <classifier>feign</classifier>
-                                    <includes>com/valtech/mobility/dummyservice/api/feign/**</includes>
+                                    <includes>${basepackage.classespath}/feign/**</includes>
                                 </configuration>
                             </execution>
                         </executions>
@@ -260,9 +262,9 @@
                                 <configuration>
                                     <generatorName>java</generatorName>
                                     <library>feign</library>
-                                    <apiPackage>com.valtech.mobility.dummyservice.api.feign</apiPackage>
-                                    <modelPackage>com.valtech.mobility.dummyservice.api.feign.payload</modelPackage>
-                                    <invokerPackage>com.valtech.mobility.dummyservice.api.feign.client</invokerPackage>
+                                    <apiPackage>${basepackage}.feign</apiPackage>
+                                    <modelPackage>${basepackage}.feign.payload</modelPackage>
+                                    <invokerPackage>${basepackage}.feign.client</invokerPackage>
                                     <output>${project.build.directory}/generated-sources/feign</output>
                                 </configuration>
                             </execution>
@@ -361,7 +363,7 @@
                                 </goals>
                                 <configuration>
                                     <classifier>springCloud</classifier>
-                                    <includes>com/valtech/mobility/dummyservice/api/springcloud/**</includes>
+                                    <includes>${basepackage.classespath}/springcloud/**</includes>
                                 </configuration>
                             </execution>
                         </executions>
@@ -382,9 +384,9 @@
                                         <skipDefaultInterface>true</skipDefaultInterface>
                                         <interfaceOnly>true</interfaceOnly>
                                     </configOptions>
-                                    <apiPackage>com.valtech.mobility.dummyservice.api.springcloud</apiPackage>
-                                    <modelPackage>com.valtech.mobility.dummyservice.api.springcloud.payload</modelPackage>
-                                    <invokerPackage>com.valtech.mobility.dummyservice.api.springcloud.client</invokerPackage>
+                                    <apiPackage>${basepackage}.springcloud</apiPackage>
+                                    <modelPackage>${basepackage}.springcloud.payload</modelPackage>
+                                    <invokerPackage>${basepackage}.springcloud.client</invokerPackage>
                                     <output>${project.build.directory}/generated-sources/spring-cloud</output>
                                 </configuration>
                             </execution>
