@@ -57,7 +57,7 @@ paths:
                 $ref: '#/components/schemas/TimeTrack'
     put:
       tags:
-        - TimeTracks
+        - TimeTrack
       summary: updates a TimeTrack
       operationId: updateTimeTrack
       requestBody:
