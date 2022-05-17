@@ -82,7 +82,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
-                    <scmCommentPrefix>[ci skip]</scmCommentPrefix>
+                    <scmDevelopmentCommitComment>[ci skip] prepare for next development iteration</scmDevelopmentCommitComment>
                 </configuration>
             </plugin>
         </plugins>
