@@ -4,7 +4,7 @@
 
     <groupId>open-timetrack</groupId>
     <artifactId>api</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -13,7 +13,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/open-timetrack/api.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v0.0.2</tag>
   </scm>
 
     <distributionManagement>
