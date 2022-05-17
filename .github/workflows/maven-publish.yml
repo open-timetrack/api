@@ -46,6 +46,11 @@ jobs:
         id: taginfo
         run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
 
+      - name: debug
+        run: echo "$env.TEST_TAG"
+        env:
+          TEST_TAG: ${{ github.taginfo.outputs.tag }}
+
       - name: Update CHANGELOG
         id: changelog
         uses: Requarks/changelog-action@v1
